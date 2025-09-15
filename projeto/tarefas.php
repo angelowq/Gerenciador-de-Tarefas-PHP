@@ -1,8 +1,20 @@
 <?php
     session_start();
+
+    function mostrarAtividades($lista_tarefas) {
+        foreach ($lista_tarefas as $tarefa){
+            echo '<tr>';
+                echo "<td>{$tarefa['nome']}</td>";
+                echo "<td>{$tarefa['descricao']}</td>";
+                echo "<td>{$tarefa['prazo']}</td>";
+                echo "<td>{$tarefa['prioridade']}</td>";
+                echo "<td>{$tarefa['concluida']}</td>";
+            echo '</tr>';
+        }
+    }
+
     if (isset($_GET['nome']) && $_GET['nome'] != ''){
         $tarefa = array();
-
         $tarefa['nome'] = $_GET['nome'];
         
         if (isset($_GET['descricao'])) {
@@ -33,5 +45,4 @@
     } else {
         $lista_tarefas = array();
     }
-    include "template.php";
 ?>
