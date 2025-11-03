@@ -7,7 +7,7 @@
     </head>
     <body>
         <h1>Gerenciador de Tarefas</h1>
-        <form>
+        <form method="POST" action="tarefas.php">
             <fieldset>
                 <legend>Nova Tarefa</legend>
                 <label>
@@ -20,22 +20,22 @@
                 </label>
                 <label>
                     Prazo (Opcional):
-                    <input type="text" name="prazo"/>
+                    <input type="date" name="prazo"/>
                 </label>
                 <fieldset>
                     <legend>Prioridade:</legend>
                     <label>
-                        <input type="radio" name="prioridade" value="Baixa" checked/>
+                        <input type="radio" name="prioridade" value="3" checked/>
                         Baixa
-                        <input type="radio" name="prioridade" value="Média"/>
+                        <input type="radio" name="prioridade" value="2"/>
                         Média
-                        <input type="radio" name="prioridade" value="Alta"/>
+                        <input type="radio" name="prioridade" value="1"/>
                         Alta
                     </label>
                 </fieldset>
                 <label>
                     Tarefa Concluída:
-                    <input type="checkbox" name="concluida" value="Sim"/>
+                    <input type="checkbox" name="concluida" value="1"/>
                 </label>
                 <input type="submit" value="Cadastrar"/>
             </fieldset>
@@ -48,7 +48,7 @@
                 <th>Prioridade</th>
                 <th>Concluída</th>
             </tr>
-            <?php mostrarAtividades($_SESSION['lista_tarefas']); ?>
+            <?php mostrarAtividades(); ?>
         </table>
     </body>
 </html>
